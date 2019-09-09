@@ -1,3 +1,27 @@
+"""
+Demonstration of a simple spring-block-slider model, in which sliding stress
+is defined by an arbitrary function of strain-rate and yield stress.
+
+The model solver is stored in lib_melange_slider and by default, slider strain-rate and stress is assumed to follow:
+
+stress = ( c_0 * ln( strain-rate * eta_m / tau_y ) + c_0 ) / tau_y
+
+where:
+eta_m - matrix viscosity
+tau_y - clast yield stress
+c_0, c_1 - constants
+
+tau_y is varied as a function of stress. At stress tau_1, tau_y is reduced to tau_y1. When stress lowers to tau_0, tau_y
+is increased back to tau_y0. 
+
+This example takes tau_y0 as 200 MPa and varies tau_y1 between 50, 60 and 80 MPa.
+
+
+"""
+
+
+
+
 import numpy
 import matplotlib.pyplot as plt
 import lib_melange_slider

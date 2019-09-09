@@ -1,6 +1,40 @@
 import numpy
 
 
+"""
+1D Spring-block slider, with sliding stress modelled as a Bingham rheology incorporating rate-and-state friction.
+
+Usage:
+# Initialise model
+melangemodel = lib_melange_slider.solver()
+# Solve
+sol = melangemodel.solve()
+# Returns arrays with time, displacement and velocity
+solT = sol['t'] / 3600 / 24 / 365
+solX = sol['x']
+solV = sol['v']
+
+The spring-block slider system is modelled as:
+    k * (Vp * t - x) = tau
+
+    k: spring constant (Pa / m)
+    Vp: loading velocity
+    x: slider displacement
+    tau: slider stress
+
+
+Slider velocity is set as a function of stress, fnRheology.
+By default, slider strain-rate and stress is assumed to follow:
+
+stress = ( c_0 * ln( strain-rate * eta_m / tau_y ) + c_0 ) / tau_y
+
+where:
+eta_m - matrix viscosity
+tau_y - clast yield stress
+c_0, c_1 - constants
+
+"""
+
 
 # Default rheology function, which can be switched out
 def fnRheology(self,stress,boolWeakened = False):

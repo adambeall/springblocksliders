@@ -3,7 +3,7 @@ Demonstration of a simple spring-block-slider model, in which sliding stress
 is defined as a Voigt mixture of a rate-and-state frictional material (of volumetric proportion phi)
 and a Newtonian viscous material, which is essentially a Bingham plastic.
 
-The model solver is stored in slider.slidermodel and contains default parameters which are printed at start-up.
+The model solver is stored in lib_slider and contains default parameters which are printed at start-up.
 Matrix viscosity can be varied as a fraction of the critical viscosity.
 """
 

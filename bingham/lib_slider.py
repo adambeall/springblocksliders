@@ -4,6 +4,17 @@ from scipy.integrate import solve_ivp
 """
 1D Spring-block slider, with sliding stress modelled as a Bingham rheology incorporating rate-and-state friction.
 
+Usage:
+# Initialise model
+bingham_model = lib_slider.solver()
+# Solve
+sol = bingham_model.solve()
+# Returns arrays with velocity, state variable, and time
+solV = sol['v']
+solTheta = sol['theta']
+solTimeYears = sol['t']  / 3600.0 / 24.0 / 365.0
+
+
 The spring-block slider system is modelled as:
     k * (Vp * t - x) = tau
 
